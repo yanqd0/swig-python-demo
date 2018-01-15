@@ -171,3 +171,6 @@ tags
 
 
 # End of https://www.gitignore.io/api/python,c,vim
+
+src/example/example_wrap.c
+src/example/example.py
