@@ -4,7 +4,16 @@
 """ setup script """
 import runpy
 
-from setuptools import find_packages, setup
+from setuptools import Extension, find_packages, setup
+
+
+EXAMPLE_EXT = Extension(
+    name='_example',
+    sources=[
+        'src/example/example.c',
+        'src/example/example.i',
+    ],
+)
 
 INFO = runpy.run_path('src/example/_meta.py')
 
@@ -20,7 +29,7 @@ setup(
 
     packages=find_packages('src'),
     package_dir={'': 'src'},
-    package_data={'example': ['_example.so']},
+    ext_modules=[EXAMPLE_EXT],
 
     python_requires='>=3.4',
     setup_requires=[
