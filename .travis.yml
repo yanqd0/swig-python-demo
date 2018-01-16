@@ -10,8 +10,8 @@ before_install:
   - sudo apt-get install -y python3-dev swig
 
 install:
-  - pip install .
+  - python setup.py bdist_wheel
+  - pip install dist/*.whl
 
 script:
   - pytest
-  - python setup.py sdist bdist_egg bdist_wheel
