@@ -1,0 +1,17 @@
+# vim: set shiftwidth=2 tabstop=2 softtabstop=-1 expandtab:
+
+language: python
+
+python:
+  - "3.5"
+
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y python3-dev swig
+
+install:
+  - pip install .
+
+script:
+  - pytest
+  - python setup.py sdist bdist_egg bdist_wheel
