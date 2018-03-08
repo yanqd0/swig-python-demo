@@ -5,6 +5,7 @@
 import runpy
 
 from setuptools import Extension, find_packages, setup
+from setuptools.command.build_py import build_py
 
 EXAMPLE_EXT = Extension(
     name='_example',
@@ -29,6 +30,15 @@ STD_EXT = Extension(
     ]
 )
 
+
+# Build extensions before python modules,
+# or the generated SWIG python files will be missing.
+class BuildPy(build_py):
+    def run(self):
+        self.run_command('build_ext')
+        super(build_py, self).run()
+
+
 INFO = runpy.run_path('src/example/_meta.py')
 
 setup(
@@ -44,6 +54,9 @@ setup(
     packages=find_packages('src'),
     package_dir={'': 'src'},
     ext_modules=[EXAMPLE_EXT, STD_EXT],
+    cmdclass={
+        'build_py': BuildPy,
+    },
 
     python_requires='>=3.4',
     setup_requires=[
