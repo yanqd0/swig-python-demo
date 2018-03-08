@@ -1,18 +1,20 @@
 # vim: set shiftwidth=2 tabstop=2 softtabstop=-1 expandtab:
 
+sudo: false
+
 language: python
 
 python:
   - "3.5"
 
-before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get install -y swig
+addons:
+  apt_packages:
+    - swig
 
 install:
   - python setup.py bdist_wheel
+  - pip install dist/*.whl
 
 script:
-  - pytest setup.py test
-  - pip install dist/*.whl
+  - python setup.py test
   - pytest
