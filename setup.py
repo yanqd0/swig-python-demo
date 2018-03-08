@@ -15,6 +15,18 @@ EXAMPLE_EXT = Extension(
     ],
 )
 
+STD_EXT = Extension(
+    name='_stl_example',
+    swig_opts=['-c++'],
+    sources=[
+        'src/example/stl_example.cpp',
+        'src/example/stl_example.i',
+    ],
+    include_dirs=[
+        'src/example',
+    ],
+)
+
 INFO = runpy.run_path('src/example/_meta.py')
 
 setup(
@@ -29,7 +41,7 @@ setup(
 
     packages=find_packages('src'),
     package_dir={'': 'src'},
-    ext_modules=[EXAMPLE_EXT],
+    ext_modules=[EXAMPLE_EXT, STD_EXT],
 
     python_requires='>=3.4',
     setup_requires=[

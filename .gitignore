@@ -174,3 +174,5 @@ tags
 
 src/example/example_wrap.c
 src/example/example.py
+src/example/stl_example.py
+src/example/stl_example_wrap.cpp

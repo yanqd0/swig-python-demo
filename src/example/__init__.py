@@ -6,3 +6,10 @@ from .example import (
     get_time,
     my_mod,
 )
+from .stl_example import (
+    Int2strMap,
+    Str2intMap,
+    echo,
+    reverse_map,
+    vector_int2str,
+)
