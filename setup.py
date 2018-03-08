@@ -6,7 +6,6 @@ import runpy
 
 from setuptools import Extension, find_packages, setup
 
-
 EXAMPLE_EXT = Extension(
     name='_example',
     sources=[
@@ -25,6 +24,9 @@ STD_EXT = Extension(
     include_dirs=[
         'src/example',
     ],
+    extra_compile_args=[  # The g++ (4.8) in Travis needs this
+        '-std=c++11',
+    ]
 )
 
 INFO = runpy.run_path('src/example/_meta.py')

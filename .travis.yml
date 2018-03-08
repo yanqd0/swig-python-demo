@@ -6,12 +6,13 @@ python:
   - "3.5"
 
 before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install -y python3-dev swig
+  - sudo apt-get update -qq
+  - sudo apt-get install -y swig
 
 install:
   - python setup.py bdist_wheel
-  - pip install dist/*.whl
 
 script:
+  - pytest setup.py test
+  - pip install dist/*.whl
   - pytest
