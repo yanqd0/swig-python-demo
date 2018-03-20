@@ -64,5 +64,8 @@ setup(
     ],
     tests_require=[
         'pytest',
+        'pytest-cov',
+        'pytest-pep8',
+        'pytest-flakes',
     ],
 )
