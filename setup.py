@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 
-""" setup script """
+"""Setup this SWIG library."""
 import runpy
 
 from setuptools import Extension, find_packages, setup
@@ -65,7 +65,6 @@ setup(
     tests_require=[
         'pytest',
         'pytest-cov',
-        'pytest-pep8',
-        'pytest-flakes',
+        'pytest-flake8',
     ],
 )
