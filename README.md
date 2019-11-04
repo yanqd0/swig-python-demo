@@ -44,12 +44,12 @@ There is also a [Makefile](Makefile) to explain how [SWIG] works.
 
 ## Usage
 
-<pre><code>
+```sh
 virtualenv -p python3 .env
 source .env/bin/activate
-pip install -r requirements.txt<mark>
-pip install -e .</mark>
+pip install -r requirements.txt
+pip install -e .
 pytest
-</code></pre>
+```
 
-The compilation and packaging happens in the line I marked.
+The compilation and packaging happens in `pip install -e .`
