@@ -53,6 +53,7 @@ setup(
 
     packages=find_packages('src'),
     package_dir={'': 'src'},
+    package_data={'': ['*.pyd']},
     ext_modules=[EXAMPLE_EXT, STD_EXT],
     cmdclass={
         'build_py': BuildPy,
